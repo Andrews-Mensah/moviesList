@@ -1,0 +1,30 @@
+{
+  "name": "movies",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "test": "mocha --timeout 0 --exit"
+  },
+  "dependencies": {
+    "cookie-parser": "~1.4.4",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "express": "~4.16.1",
+    "express-validator": "^6.14.2",
+    "http-errors": "~1.6.3",
+    "jade": "~1.11.0",
+    "jsonwebtoken": "^8.5.1",
+    "mongoose": "^6.7.2",
+    "morgan": "~1.9.1",
+    "nodemon": "^2.0.20",
+    "sanitize-html": "^2.7.3"
+  },
+  "devDependencies": {
+    "chai": "^4.3.7",
+    "mocha": "^10.1.0",
+    "sinon": "^14.0.2",
+    "sinon-chai": "^3.7.0",
+    "sinon-express-mock": "^2.2.1"
+  }
+}
