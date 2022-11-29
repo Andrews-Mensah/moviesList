@@ -1,5 +1,5 @@
 module.exports = {
-    dbUri: "mongodb+srv://AndyAshong:aVKp38AtSgELmgd@cluster0.gfe56iv.mongodb.net/?retryWrites=true&w=majority",
+    dbUri: "mongodb+srv://AndyAshong:aVKp38AtSgELmgd@cluster0.gfe56iv.mongodb.net/?retryWrites=true&w=majority&ssl=true",
     saltWorkFactor: 10,
     accessTokenTtl:'15m',
     refreshTokenTtl: '1y',

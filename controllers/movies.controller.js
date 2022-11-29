@@ -8,9 +8,24 @@ module.exports.getAllMovies = async (req, res, next)=>{
 
     try{
         movies = await Movies.find({
-        //    category: "Horror"
-
         isMovie: {$eq: true}
+
+        })
+        return res.status(200).send({"Movies": movies})
+
+    }
+    catch (error){
+        console.log("Error", error)
+       return res.status(400).send({"Error": error})
+    }
+}
+
+module.exports.getAllNonMovies = async (req, res, next)=>{
+    let movies;
+
+    try{
+        movies = await Movies.find({
+        isMovie: {$ne: true}
 
         
 
@@ -119,8 +134,6 @@ module.exports.updateMovie = async (req, res, next)=>{
             isMovie: requestBody.isMovie
         })
 
-    // const movie = requestBody;
-
         await Movies.findByIdAndUpdate(movieID, movie)
 
         return res.status(200).json({
@@ -171,11 +184,11 @@ module.exports.searchMovieByName = async (req, res, next)=>{
     const sort = req.query.sortBy || undefined;
     const page = parseInt(req.query.page, 10)|| 25;
     const perPage = req.query.perPage || null;
-    const keyword = req.query.keyword;
+    const keyword = req.query.keyword || undefined;
     console.log('Keyword', keyword)
 
 
-   const rrrr = await Movies.find(
+   const movie = await Movies.find(
     {$text: {$search: keyword}}
     // {
     //     $or:[{
@@ -190,7 +203,7 @@ module.exports.searchMovieByName = async (req, res, next)=>{
     
     
     )
-   res.status(200).send({rrrr})
+   res.status(200).send({movie})
     }
 
     catch(error){
