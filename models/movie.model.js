@@ -30,15 +30,7 @@ const movieSchema = new mongoose.Schema({
         type: Boolean,
         required: true,
         default: false
-    },
-    cast: [
-        {
-            name: String,
-            // required: true
-        }
-    ]
-
-
+    }
 },
 {timestamps: true}
 
