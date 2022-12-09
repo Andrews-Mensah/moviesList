@@ -93,11 +93,16 @@ module.exports.deleteCast = async (req, res, next)=>{
 }
 
 module.exports.getCastOfParticularMovie = async (req, res, next)=>{
-    const movieID = req.params.id;
+    
 
     try {
+        const movieID = req.params.id;
 
-        const movie = Movie.findById(movieID)
+        console.log("hshshxhxshxxhxhxhxhxhxh",movieID)
+
+        const movie = await Movie.find({
+            _id: {$eq:movieID}
+        })
 
         console.log("Movie", movie)
         
@@ -106,7 +111,8 @@ module.exports.getCastOfParticularMovie = async (req, res, next)=>{
             res.status(400).send("Please add a movie ID")
         }
 
-        if(movie === null){
+        if(!movie){
+            console.log("bbjjcbsjcbscbscscschbskchbschbshchsk")
             res.status(400).send("Movie ID does not exist")
         }
 
@@ -120,7 +126,7 @@ module.exports.getCastOfParticularMovie = async (req, res, next)=>{
     }
 
     catch(error){
-        console.log("Error", error)
+        console.log("Error1234", error)
         res.status(400).send({"Error": error})
     }
 
