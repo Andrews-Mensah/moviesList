@@ -6,14 +6,11 @@ const jwt = require('jsonwebtoken')
 
 
 
-module.exports.getUserCasts= async (req, res, next)=>{
+module.exports.getAllUsers= async (req, res, next)=>{
     let users;
 
     try{
-        users = await Users.find({
-        // isMovie: {$eq: true}
-
-        })
+        users = await rentUser.find()
         return res.status(200).send({"Users": users})
 
     }
